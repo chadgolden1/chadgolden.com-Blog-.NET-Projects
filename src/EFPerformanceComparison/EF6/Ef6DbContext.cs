@@ -6,7 +6,7 @@ namespace EF6
     public class Ef6DbContext : DbContext
     {
         public Ef6DbContext() : base(@"Server=(localdb)\msSqlLocalDB; Integrated Security=True; Database=Ef63BookDB; MultipleActiveResultSets=true;")
-            { }
+        { }
 
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }

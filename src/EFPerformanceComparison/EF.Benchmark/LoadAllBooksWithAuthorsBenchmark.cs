@@ -1,24 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
+﻿using BenchmarkDotNet.Attributes;
 using EF.Benchmark.Helpers;
-using BenchmarkDotNet.Attributes;
+using EF6;
+using EFCore;
+using System.Collections.Generic;
 
 namespace EF.Benchmark
 {
-    public class LoadAllBooksWithAuthorsBenchmark : EfBenchmark
+    [MedianColumn]
+    public class LoadAllBooksWithAuthorsBenchmark
     {
         [Benchmark]
         public List<EF6.Book> LoadAllBooksWithAuthorsWithEf6()
         {
-            return new Ef6Helper(_ef6).LoadAllBooksWithAuthors();
+            using var ef6 = new Ef6DbContext();
+            return new Ef6Helper(ef6).LoadAllBooksWithAuthors();
         }
 
         [Benchmark]
         public List<EFCore.Book> LoadAllBooksWithAuthorsWithEfCore()
         {
-            return new EfCoreHelper(_efCore).LoadAllBooksWithAuthors();
-        }   
+            using var efCore = new EfCoreDbContext();
+            return new EfCoreHelper(efCore).LoadAllBooksWithAuthors();
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace EFCore
                 .UseSqlServer(
                     @"Server=(localdb)\msSqlLocalDB; Integrated Security=True; Database=EfCoreBookDB; MultipleActiveResultSets=true;"
                 );
-                
+
     }
 
     public class Book

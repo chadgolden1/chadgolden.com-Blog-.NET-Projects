@@ -1,9 +1,7 @@
 ﻿using EF6;
-using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Linq;
 using System.Data.Entity;
+using System.Linq;
 
 namespace EF.Benchmark.Helpers
 {

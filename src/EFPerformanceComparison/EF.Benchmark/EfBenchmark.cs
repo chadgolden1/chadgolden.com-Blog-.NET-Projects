@@ -1,8 +1,6 @@
 ﻿using EF6;
 using EFCore;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EF.Benchmark
 {

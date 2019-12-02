@@ -1,15 +1,15 @@
 ﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Engines;
 using EF6;
 using EFCore;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
-using BenchmarkDotNet.Engines;
 
 namespace EF.Benchmark
 {
     [SimpleJob(RunStrategy.Throughput, launchCount: 1, warmupCount: 5, targetCount: 20)]
+    [MedianColumn]
     public class AddRemoveDeleteNAuthors
     {
         const int N = 2500;
@@ -45,7 +45,7 @@ namespace EF.Benchmark
 
             ef6.SaveChanges();
         }
-        
+
         [Benchmark]
         public void LoadAndDeleteNAuthorsWithEf6()
         {
